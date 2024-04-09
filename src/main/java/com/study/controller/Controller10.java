@@ -163,8 +163,6 @@ public class Controller10 {
 
     @RequestMapping("sub9")
     public void method9(Model model) {
-        var list = new ArrayList<MyBean104>();
-
         MyBean104 e1 = new MyBean104();
         MyBean104 e2 = new MyBean104();
 
@@ -174,9 +172,7 @@ public class Controller10 {
         e2.setCity("일본");
         e2.setFoods(List.of("라멘", "덮밥", "초밥"));
 
-        list.add(e1);
-        list.add(e2);
-
+        var list = List.of(e1, e2);
         model.addAttribute("data", list);
     }
 }
