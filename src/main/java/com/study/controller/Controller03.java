@@ -46,7 +46,7 @@ public class Controller03 {
     // /main3/sub3?city&country
     // /main3/sub3?city=seoul&country=korea
     // /main3/sub3?city=tokyo&country=japan
-    // /main3/sub3?city=uk&country=london
+    // /main3/sub3?city=london&country=uk
     @RequestMapping(value = "sub3", params = {"country", "city"})
     public void method6() {
         System.out.println("C03Controller03 method6");
