@@ -22,38 +22,29 @@
     <button>조회</button>
 </form>
 <hr>
-
-<c:if test="${empty employeesList}" var="emptyEmployees">
-    <p>조회된 직원이 없습니다.</p>
-</c:if>
-
-<c:if test="${not emptyEmployees}">
-
-    <table>
-        <thead>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>lastname</th>
+        <th>firstname</th>
+        <th>birthdate</th>
+        <th>photo</th>
+        <th>notes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${employeesList}" var="employees">
         <tr>
-            <th>id</th>
-            <th>lastname</th>
-            <th>firstname</th>
-            <th>birthdate</th>
-            <th>photo</th>
-            <th>notes</th>
+            <td>${employees.id}</td>
+            <td>${employees.lastName}</td>
+            <td>${employees.firstName}</td>
+            <td>${employees.birthDate}</td>
+            <td>${employees.photo}</td>
+            <td>${employees.notes}</td>
         </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${employeesList}" var="employees">
-            <tr>
-                <td>${employees.id}</td>
-                <td>${employees.lastName}</td>
-                <td>${employees.firstName}</td>
-                <td>${employees.birthDate}</td>
-                <td>${employees.photo}</td>
-                <td>${employees.notes}</td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-</c:if>
-
+    </c:forEach>
+    </tbody>
+</table>
 </body>
 </html>

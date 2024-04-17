@@ -285,6 +285,8 @@ public class Controller25 {
         Connection conn = dataSource.getConnection();
         PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, keyword);
+        pstmt.setString(2, keyword);
+
         ResultSet rs = pstmt.executeQuery();
         try (rs; conn; pstmt) {
             while (rs.next()) {
@@ -300,6 +302,7 @@ public class Controller25 {
         }
         model.addAttribute("prevSearch", search);
         model.addAttribute("employeesList", list);
-        return "/main25/sub8EmployeesList";
+
+        return "main25/sub8EmployeesList";
     }
 }
