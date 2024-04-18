@@ -277,8 +277,8 @@ public class Controller25 {
         String sql = """
                 SELECT *
                 FROM Employees
-                WHERE lastName LIKE ?
-                    OR firstName LIKE ?
+                WHERE LastName LIKE ?
+                  OR FirstName LIKE ?
                 """;
 
         String keyword = "%" + search + "%";
