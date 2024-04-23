@@ -42,11 +42,14 @@
             country
             <input type="text" value="${customer.country}" name="country">
         </div>
-        <div>
-            id
+        <div style="display: none">
             <input type="text" value="${customer.id}" name="id">
+        </div>
+        <div>
+            <input type="submit" value="전송">
         </div>
     </form>
 </c:if>
+
 </body>
 </html>
