@@ -1,12 +1,15 @@
 package com.study.controller;
 
 import com.study.domain.MyBean254Customer;
+import com.study.domain.MyBean256Product;
 import com.study.domain.MyBean258Employees;
 import com.study.mapper.Mapper02;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -46,5 +49,53 @@ public class Controller31 {
         // 2번 직원의 정보 조회 후 출력
         MyBean258Employees e = mapper.selectOneEmployee1();
         System.out.println("e = " + e);
+    }
+
+    @GetMapping("sub6")
+    public void method6() {
+        MyBean258Employees e = mapper.selectOneEmployee2(4);
+        System.out.println("e = " + e);
+    }
+
+    // /main31/sub7?id=4
+    @GetMapping("sub7")
+    public void method7(Integer id) {
+        MyBean258Employees e = mapper.selectOneEmployee2(id);
+        System.out.println("e = " + e);
+    }
+
+    // /main31/sub8?id=9
+    @GetMapping("sub8")
+    public void method8(Integer id) {
+        MyBean254Customer c = mapper.selectOneCustomer4(id);
+        System.out.println("c = " + c);
+    }
+
+    @GetMapping("sub9")
+    public void method9() {
+        List<MyBean254Customer> customers = mapper.selectAllCustomer1();
+        System.out.println("customers = " + customers.size());
+    }
+
+    // /main31/sub10
+    // 모든 직원을 조회한 결과 콘솔에 출력
+    @GetMapping("sub10")
+    public void method10() {
+        List<MyBean258Employees> e = mapper.selectAllEmployee1();
+        e.forEach(System.out::println);
+    }
+
+    @GetMapping("sub11")
+    public void method11() {
+        List<MyBean254Customer> list = mapper.selectCustomersByCountry("usa", "uk");
+        list.forEach(System.out::println);
+    }
+
+    // /main31/sub12?min5&max=55
+    // 가격이 5 ~ 55 사이인 상품(Products) 가격 순 조회 후 콘솔에 출력
+    @GetMapping("sub12")
+    public void method12(Double min, Double max) {
+        List<MyBean256Product> p = mapper.selectProductsByPriceBetween(min, max);
+        p.forEach(System.out::println);
     }
 }
