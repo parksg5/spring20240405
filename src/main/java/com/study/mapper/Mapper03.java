@@ -68,7 +68,7 @@ public interface Mapper03 {
                 City = #{city},
                 PostalCode = #{postalCode},
                 Country = #{country}
-            WHERE EmployeeID = #{id}
+            WHERE CustomerID = #{id}
             """)
     int updateCustomer(MyBean254Customer customer);
 }
