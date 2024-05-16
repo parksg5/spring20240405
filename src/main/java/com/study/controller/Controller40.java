@@ -49,4 +49,18 @@ public class Controller40 {
         System.out.println("city = " + city);
         System.out.println("country = " + country);
     }
+
+    // /api/someurl4 , get/post 요청처리메소드 작성
+    @GetMapping("/api/someurl4")
+    public void method7(@RequestParam("name") String name) {
+
+        System.out.println("name = " + name);
+    }
+
+    @PostMapping("/api/someurl4")
+    public void method8(@RequestParam("id") Integer id) {
+
+        System.out.println("id = " + id);
+    }
+
 }
